@@ -3297,7 +3297,7 @@ CREATE TABLE `user_setting` (
 INSERT INTO `user_setting` (`id`, `user_id`, `_key`, `_value`) VALUES
 (51, 1, 'scheme_style', 'left'),
 (53, 1, 'project_view', 'issues'),
-(54, 1, 'issue_view', 'list'),
+(54, 1, 'issue_view', 'tree'),
 (198, 1, 'initializedWidget', '1'),
 (201, 1, 'initialized_widget', '1'),
 (353, 1, 'page_layout', 'fixed'),

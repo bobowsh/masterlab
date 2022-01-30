@@ -18,10 +18,10 @@ single_mode	=	true
     auth_cmds = ["Auth","Authorize"]
 
 [mysql]
-    database 	=	"masterlab_dev"
+    database 	=	"masterlab"
     host        =   "localhost"
     port		=	"3306"
-    user 		= 	"root"
+    user 		= 	"dev_user"
     password 	= 	"123456"
     charset	    =	"utf8mb4_unicode_ci"
     timeout	    =	"10"

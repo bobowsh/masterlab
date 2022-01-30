@@ -134,9 +134,10 @@
                                                         </div>
                                                         <div class="col-lg-4">
                                                             <select class="form-control selectpicker" name="issue_view" id="issue_view">
-                                                                <option  value="list"       {% if 'list'==tpl.issue_view %} selected {% endif %}>表格视图</option>
+                                                                <option value="list"       {% if 'list'==tpl.issue_view %} selected {% endif %}>表格视图</option>
                                                                 <option value="detail"      {% if 'detail'==tpl.issue_view %} selected {% endif %}>左右视图</option>
                                                                 <option value="responsive"  {% if 'responsive'==tpl.issue_view %} selected {% endif %}>响应式视图</option>
+                                                                <option value="tree"        {% if 'tree'==tpl.issue_view %} selected {% endif %}>子任务视图</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-lg-6">
