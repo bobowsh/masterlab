@@ -633,13 +633,14 @@
 
                 }
                 function linkIssue(id) {
-                    if(issue_view=='list' || issue_view=='responsive'){
+                    //if(issue_view=='list' || issue_view=='responsive')
+                    {
                         window.location.href = '/issue/detail/index/'+id;
                         return;
                     }
-                    let dataSummary = $('#tree_tr_'+id).data("summary") || "";
-                    $('#tree_tr_'+id).addClass("active").siblings(".tree-item").removeClass("active");
-                    showFloatDetail(id, dataSummary);
+                   // let dataSummary = $('#tree_tr_'+id).data("summary") || "";
+                   // $('#tree_tr_'+id).addClass("active").siblings(".tree-item").removeClass("active");
+                   // showFloatDetail(id, dataSummary);
                 }
 
                 window.operateEvents = {

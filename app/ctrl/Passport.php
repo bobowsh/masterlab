@@ -521,15 +521,15 @@ class Passport extends BaseCtrl
             }
         }
 
-        if (!isset($_POST['email']) || empty($_POST['email'])) {
-            $err['email'] = 'email不能为空';
-        }
-        if (!isset($_POST['email_confirmation']) || empty($_POST['email_confirmation'])) {
-            $err['email_confirmation'] = '确认email不能为空';
-        }
-        if ($_POST['email'] != $_POST['email_confirmation']) {
-            $err['email_confirmation'] = '两次email输入不一致';
-        }
+       // if (!isset($_POST['email']) || empty($_POST['email'])) {
+       //     $err['email'] = 'email不能为空';
+       // }
+       // if (!isset($_POST['email_confirmation']) || empty($_POST['email_confirmation'])) {
+       //     $err['email_confirmation'] = '确认email不能为空';
+       // }
+       // if ($_POST['email'] != $_POST['email_confirmation']) {
+       //     $err['email_confirmation'] = '两次email输入不一致';
+       // }
         if (!isset($_POST['username']) || empty($_POST['username'])) {
             $err['username'] = '用户名不能为空';
         }
@@ -540,7 +540,7 @@ class Passport extends BaseCtrl
             $err['display_name'] = '显示名称不能为空';
         }
         $username = trimStr($_POST['username']);
-        $email = trimStr($_POST['email']);
+        $email = $username . '@cetc10.net';//trimStr($_POST['email']);
         $password = trimStr($_POST['password']);
         $displayName = trimStr(safeStr($_POST['display_name']));
         $avatar = isset($_POST['avatar']) ? safeStr($_POST['avatar']) : "";
@@ -555,10 +555,10 @@ class Passport extends BaseCtrl
         // 检查用户名和email是否可用
         $err = [];
         $userModel = UserModel::getInstance('');
-        $user = $userModel->getByEmail($email);
-        if (isset($user['uid'])) {
-            $err['email'] = 'email已经被使用了';
-        }
+       // $user = $userModel->getByEmail($email);
+       // if (isset($user['uid'])) {
+       //     $err['email'] = 'email已经被使用了';
+       // }
         $user = $userModel->getByUsername($username);
         if (isset($user['uid'])) {
             $err['username'] = '用户名已经被使用了';
@@ -573,10 +573,11 @@ class Passport extends BaseCtrl
         $userInfo['email'] = safeStr($email);
         $userInfo['username'] = safeStr($username);
         $userInfo['display_name'] = safeStr($displayName);
-        $userInfo['status'] = UserModel::STATUS_PENDING_APPROVAL;
+      //  $userInfo['status'] = UserModel::STATUS_NORMAL//UserModel::STATUS_PENDING_APPROVAL;
+		$userInfo['status'] = UserModel::STATUS_PENDING_APPROVAL;
         $userInfo['create_time'] = time();
         $userInfo['avatar'] = $avatar;
-        $userInfo['is_verified'] = '0';
+        $userInfo['is_verified'] = '1';
         $userModel = new UserModel();
         list($ret, $user) = $userModel->addUser($userInfo);
         if ($ret == UserModel::REG_RETURN_CODE_OK) {
@@ -594,12 +595,13 @@ class Passport extends BaseCtrl
             $event = new CommonPlacedEvent($this, $user);
             $this->dispatcher->dispatch($event,  Events::onUserRegister);
 
-            list($mailRet, $msg) = $this->sendActiveEmail($user, $email, $displayName);
-            if ($mailRet) {
-                $this->ajaxSuccess('提示', '注册已经提交，请查看邮箱的激活邮件');
-            } else {
-                $this->ajaxSuccess('提示', '但发送激活邮件失效，请联系管理手动激活');
-            }
+          //  list($mailRet, $msg) = $this->sendActiveEmail($user, $email, $displayName);
+          //  if ($mailRet) {
+          //      $this->ajaxSuccess('提示', '注册已经提交，请查看邮箱的激活邮件');
+          //  } else {
+          //      $this->ajaxSuccess('提示', '但发送激活邮件失效，请联系管理手动激活');
+          //  }
+            $this->ajaxSuccess('提示', '注册成功，请联系管理员激活！');
         } else {
             $this->ajaxFailed('服务器错误', '注册失败,详情:' . $user);
         }

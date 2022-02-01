@@ -85,7 +85,7 @@ class Main extends BaseAdminCtrl
         $data['setting_mail'] = array_column($settingMailArr,'_value', '_key');
         $data['socket'] = $socketConf;
         $socketServerConnectMsg = '<span style="color:green">连接成功</span>';
-        $fp = @fsockopen($data['setting_mail']['socket_server_host'], (int)$data['setting_mail']['socket_server_port'], $errno, $errstr, 5);
+      //  $fp = @fsockopen($data['setting_mail']['socket_server_host'], (int)$data['setting_mail']['socket_server_port'], $errno, $errstr, 5);
         if (!$fp) {
             $socketServerConnectMsg = '<span style="color:red">连接失败</span>';
         }

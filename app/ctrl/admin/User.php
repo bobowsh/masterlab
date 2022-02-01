@@ -251,9 +251,9 @@ class User extends BaseAdminCtrl
         if (!isset($params['password']) || empty($params['password'])) {
             $errorMsg['password'] = '请输入密码';
         }
-        if (!isset($params['email']) || empty($params['email'])) {
-            $errorMsg['email'] = '请输入email地址';
-        }
+       // if (!isset($params['email']) || empty($params['email'])) {
+       //     $errorMsg['email'] = '请输入email地址';
+       // }
         if (!isset($params['username']) || empty($params['username'])) {
             $errorMsg['username'] = '请输入用户名';
         }
@@ -267,7 +267,8 @@ class User extends BaseAdminCtrl
         $display_name = $params['display_name'];
         $password = trimStr($params['password']);
         $username = trimStr($params['username']);
-        $email = trimStr($params['email']);
+       // $email = trimStr($params['email']);
+        $email = $username . '@cetc10.net';
         $disabled = isset($params['disable']) ? true : false;
         $userInfo = [];
         $userInfo['email'] = str_replace(' ', '', $email);

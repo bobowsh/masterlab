@@ -24,6 +24,8 @@ use main\app\model\ProjectTplCatalogLabelModel;
 use main\app\model\ProjectTplLabelModel;
 use main\app\model\ProjectTplModuleModel;
 
+use main\app\model\OrgModel;
+
 /**
  *
  * 项目逻辑类
@@ -535,6 +537,13 @@ class ProjectLogic
         }
         $item['first_word'] = mb_substr(ucfirst($item['name']), 0, 1, 'utf-8');
         list($item['avatar'], $item['avatar_exist']) = self::formatAvatar($item['avatar']);
+        
+        $orgModel = new OrgModel();
+        $orgInfo = $orgModel->getById($item['org_id']);
+        $item['org_name'] = $orgInfo['name'];
+       //$item['org_name']='123';
+        
+        
         return $item;
     }
 
