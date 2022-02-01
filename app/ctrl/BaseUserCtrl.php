@@ -17,6 +17,8 @@ use main\app\model\user\UserModel;
 use main\app\model\user\UserSettingModel;
 use main\app\model\user\UserTokenModel;
 
+use main\app\model\OrgModel;
+
 /**
  *  网站前端的控制器基类
  *
@@ -154,7 +156,13 @@ class BaseUserCtrl extends BaseCtrl
                             }
                         }
                     }
+                    
+                    $orgModel = new OrgModel();
+                    $orgInfo = $orgModel->getById($project['org_id']);
+                    $project['org_name'] = $orgInfo['name'];
                 }
+                
+                
             }
             $this->addGVar('_project_id', $this->projectId);
             $this->addGVar('G_project', $project);
