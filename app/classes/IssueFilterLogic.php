@@ -45,7 +45,7 @@ class IssueFilterLogic
         'issue_type' => '类  型',
         'sprint' => '迭代',
         'weight' => '权重',
-        'assignee' => '经办人',
+        'assignee' => '处理人',
         'status' => '状态',
         'resolve' => '解决结果',
         'due_date' => '截止日期',
@@ -62,7 +62,7 @@ class IssueFilterLogic
         'issue_type' => ['title' => '类  型', 'opt' => '=,!=', 'type' => 'select', 'source' => 'issueTypes'],
         'sprint' => ['title' => '迭 代', 'opt' => '=,!=', 'type' => 'select', 'source' => 'sprints'],
         'weight' => ['title' => '权 重', 'opt' => '=,!=,<,>,<=,>=', 'type' => 'text', 'source' => ''],
-        'assignee' => ['title' => '经办人', 'opt' => '=,!=', 'type' => 'select', 'source' => 'users'],
+        'assignee' => ['title' => '处理人', 'opt' => '=,!=', 'type' => 'select', 'source' => 'users'],
         'status' => ['title' => '状 态', 'opt' => '=,!=', 'type' => 'select', 'source' => 'status'],
         'resolve' => ['title' => '解决结果', 'opt' => '=,!=', 'type' => 'select', 'source' => 'status'],
         'due_date' => ['title' => '截止日期', 'opt' => '=,!=,<,>,<=,>=', 'type' => 'date', 'source' => ''],
@@ -133,9 +133,9 @@ class IssueFilterLogic
         }
         $assigneeUid = null;
         $assigneeOpt = '=';
-        if (isset($_GET[urlencode('经办人')])) {
+        if (isset($_GET[urlencode('处理人')])) {
             $userModel = new UserModel();
-            $value = urldecode($_GET[urlencode('经办人')]);
+            $value = urldecode($_GET[urlencode('处理人')]);
             list($assigneeOpt, $value) = $getNotParam($value);
             $row = $userModel->getByUsername($value);
             if (isset($row['uid'])) {

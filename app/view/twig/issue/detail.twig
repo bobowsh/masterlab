@@ -270,41 +270,35 @@
                                 </script>{% endverbatim %}
                             </div>
                             <div class="issuable-actions" id="issue-actions">
-                                <div class="btn-group" role="group" aria-label="...">
+                             <button id="btn-create_subtask" type="button" class="btn btn-default"><i class="fa fa-copy"></i>
+                                     <a id="btn-create_subtask"  class="js-key-create"
+                                                   data-target="#modal-create-issue" data-toggle="modal"   href="#modal-create-issue">创建子任务</a>
+                                    
+                                    </button>
+                                <div class="btn-group" role="group" aria-label="..." style="margin-left: 50px" >
                                     <button id="btn-edit" type="button" class="btn btn-default js-key-edit"><i class="fa fa-edit"></i>
                                         编辑
                                     </button>
                                     <button id="btn-copy" type="button" class="btn btn-default"><i class="fa fa-copy"></i>
                                         复制
                                     </button>
+                                    <button id="btn-export" type="button" class="btn btn-default"><i class="fa fa-copy"></i>
+                                        导出
+                                    </button>
+                                                                
+                                   
+                                    
+                                    
                                     <!--<button id="btn-attachment" type="button" class="btn btn-default"><i class="fa fa-file-image-o"></i> 附件</button>-->
-                                    <div class="btn-group" role="group">
+                                    <div class="btn-group" role="group" style="margin-left: 20px" >
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            状态
+                                            修改状态
                                             <i class="fa fa-caret-down"></i>
                                         </button>
                                         <ul class="dropdown-menu" id="allow_update_status">
                                         </ul>
                                     </div>
-                                    <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            更多
-                                            <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="btn-watch" data-followed="" href="#">关注</a></li>
-                                            <li><a id="btn-create_subtask"  class="js-key-create"
-                                                   data-target="#modal-create-issue" data-toggle="modal"   href="#modal-create-issue">创建子任务</a>
-                                               </li>
-                                            <li><a id="btn-export" data-followed="" href="#">导出事项</a></li>
-                                            <!--<li><a id="btn-convert_subtask" href="#">转化为子任务</a></li>-->
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div style="margin-left: 20px" class="btn-group" role="group" aria-label="...">
                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -314,7 +308,7 @@
                                         <ul class="dropdown-menu" id="allow_update_resolves">
                                         </ul>
                                     </div>
-                                    <div class="btn-group" role="group">
+                                     <div class="btn-group" role="group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             管理
@@ -324,7 +318,18 @@
                                             <li><a id="btn-close" href="#">关闭</a></li>
                                             <li><a id="btn-delete" href="#">删除</a></li>
                                         </ul>
+                                        
+                                     <button id="btn-watch" type="button" class="btn btn-default"><i class="fa fa-copy"></i>
+                                        关注
+                                    </button>
                                     </div>
+                                  
+                                </div>
+
+                                <div style="margin-left: 20px" class="btn-group" role="group" aria-label="...">
+                                    
+                                   
+                                    
                                 </div>
                             </div>
                         </div>
@@ -336,16 +341,22 @@
                            父任务：<a id="master_issue_a" href="#"></a>
                         </div>
 
-                        <div id="issue_fields" class="content-block" style="margin-left: 15px">
+                        <div id="issue_fields_div" class="content-block" style="margin-left: 15px">
+                        <div id="issue_fields">
 
+                            </div>  
+                       <div id="custom_field_values_div">
+
+                            </div>  
+                            
                         </div>
-                        <div id="issue_custom_fields" class="content-block hide" style="margin-left: 15px">
+                        <!-- <div id="issue_custom_fields" class="content-block hide" style="margin-left: 15px"> -->
 
-                            <div id="custom_field_values_div">
+                          <!-- <div id="custom_field_values_div"> -->
 
-                            </div>
+                            <!-- </div>      -->
 
-                        </div>
+                        <!-- </div> -->
 
                         <div id="detail-page-description" class="content-block detail-page-description"
                              style="margin-left: 15px">
@@ -383,14 +394,12 @@
                                     </div>
 
                                 </div>
-                                <div class="form-group col-lg-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2">解决结果:</label>
-                                        <div class="col-sm-10">
-                                            <span  id="detail_resolve" style=" color: {{issue.resolve_info.color}}">{{issue.resolve_info.name}}</span>
-                                        </div>
+                               
+                                 <div class="form-group col-lg-6">
+                                    <label class="control-label col-sm-2" for="issue_label_ids">优先级:</label>
+                                    <div class="col-sm-10">
+                                        <span class="label "  style="color:{{issue.priority_info.status_color}}">{{issue.priority_info.name}}</span>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
@@ -400,14 +409,19 @@
                                         <span id="detail_status" class="label label-{{issue.status_info.color}} prepend-left-5">{{issue.status_info.name}}</span>
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-6">
-                                    <label class="control-label col-sm-2" for="issue_label_ids">优先级:</label>
-                                    <div class="col-sm-10">
-                                        <span class="label "  style="color:{{issue.priority_info.status_color}}">{{issue.priority_info.name}}</span>
+                                 <div class="form-group col-lg-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2">解决结果:</label>
+                                        <div class="col-sm-10">
+                                            <span  id="detail_resolve" style=" color: {{issue.resolve_info.color}}">{{issue.resolve_info.name}}</span>
+                                        </div>
                                     </div>
+
                                 </div>
+                               
                             </div>
 
+                            <!--
                             <div class="row">
                                 <div class="form-group col-lg-6 ">
                                     <label class="control-label col-sm-2" for="issue_milestone_id">影响版本:</label>
@@ -440,6 +454,7 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                             <div class="row">
                                 <div class="form-group col-lg-6 ">
                                     <label class="control-label col-sm-2" for="issue_milestone_id">模块:</label>
@@ -653,21 +668,21 @@
 
                                     <div class="sidebar-collapsed-icon sidebar-collapsed-user " data-container="body"
                                          data-placement="left" data-toggle="tooltip"
-                                         title="双击可以直接更换经办人"
+                                         title="双击可以直接更换处理人"
                                     >
 
                                     </div>
-                                    <div class="title hide-collapsed"  title="双击可以直接更换经办人">经办人
+                                    <div class="title hide-collapsed"  title="双击可以直接更换处理人">处理人
                                     </div>
 
-                                    <div class="value hide-collapsed assignee-select"  title="双击可以直接更换经办人">
+                                    <div class="value hide-collapsed assignee-select"  title="双击可以直接更换处理人">
 
                                         {% if (issue['assignee_info'])  %}
                                         <a id="assignee-a"
                                            data-issue_id="<?=issue['id']?>"
                                            class="author_link bold "
                                            href="/user/profile/<?=issue['assignee']?>"
-                                           title="双击可以直接更换经办人"
+                                           title="双击可以直接更换处理人"
                                         >
                                             <img id="assignee-img" width="32" class="avatar avatar-inline s32 " alt=""  src="<?=issue['assignee_info']['avatar']?>">
                                             <span id="assignee-display_name" class="author "><?=issue['assignee_info']['display_name']?></span>

@@ -176,7 +176,7 @@
       <th class="gdfColHeader gdfResizable" style="width:50px;">用时.</th>
       <th class="gdfColHeader gdfResizable" style="width:20px;">进度%</th>
       <th class="gdfColHeader gdfResizable requireCanSeeDep" style="width:50px;">依赖.</th>
-      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">经办人</th>
+      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">处理人</th>
     </tr>
     </thead>
   </table>
@@ -430,9 +430,9 @@
                         </div>
 
                     <div class="form-group">
-                        <div class="col-sm-2">经办人:<span class="required"> *</span></div>
+                        <div class="col-sm-2">处理人:<span class="required"> *</span></div>
                         <div class="col-sm-4">
-                            <select id="gantt_assignee" name="params[assignee]" title="经办人" class="selectpicker">
+                            <select id="gantt_assignee" name="params[assignee]" title="处理人" class="selectpicker">
                                 {% for row in project_users %}
                                     {% set  display_name = row['display_name'] %}
                                     <option value="<?=row.uid?>"  data-content="<img width='20px' height='20px' class=' float-none' style='border-radius: 50%;' src='<?=row.avatar?>' > <?=display_name?>"  ><?=display_name?></option>

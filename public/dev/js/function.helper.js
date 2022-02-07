@@ -460,7 +460,7 @@ function user_html(uid) {
     }
     html += '<span class="list-item-name"><a   title="'+user.display_name+'"  href="/user/profile/' + user.uid + '">' +
         '<img width="26px" height="26px" class=" float-none" style="border-radius: 50%;"   data-toggle="tooltip" data-placement="bottom"  title="' + user.username + ' ' + user.display_name + '" src="' + user.avatar + '" />' +
-        '</a></span>';
+        user.display_name + '</a></span>';
     return html;
 }
 

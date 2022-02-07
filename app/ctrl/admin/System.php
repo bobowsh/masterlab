@@ -757,7 +757,7 @@ class System extends BaseAdminCtrl
     {
         $model = new NotifySchemeDataModel();
         $schemeData = $model->getRows('*', ['scheme_id' => NotifySchemeModel::DEFAULT_SCHEME_ID]);
-        $roleUserMap = ["assigee" => '经办人', "reporter" => '报告人', "follow" => '关注人', 'project' => '项目成员'];
+        $roleUserMap = ["assigee" => '处理人', "reporter" => '报告人', "follow" => '关注人', 'project' => '项目成员'];
 
         foreach ($schemeData as &$item) {
             $item['user_role_name'] = [];

@@ -123,7 +123,7 @@
                                                 <option value="issue_type">事项类型</option>
                                                 <option value="status">状态</option>
                                                 <option value="resolve">解决结果</option>
-                                                <option value="assignee">经办人</option>
+                                                <option value="assignee">处理人</option>
                                             </select>
                                         </div>
                                         <div id="sprint-group_by-container" class="dropdown inline prepend-right-10 " style="margin-left: 5px;display: none" >
@@ -133,13 +133,13 @@
                                                 <option value="issue_type">事项类型</option>
                                                 <option value="status">状态</option>
                                                 <option value="resolve">解决结果</option>
-                                                <option value="assignee">经办人</option>
+                                                <option value="assignee">处理人</option>
                                             </select>
                                         </div>
                                         <button class="btn btn-default active hide" type="button" id="btn-mind_filter" title="数据筛选"  style="margin-left: 5px">
                                             <i class="fa fa-filter"></i>
                                         </button>
-                                        <span style="color: grey;font-size: 10px;display: none">经办人:sven;模块:事项;状态:打开 </span>
+                                        <span style="color: grey;font-size: 10px;display: none">处理人:sven;模块:事项;状态:打开 </span>
                                         <a title="清除筛选" href="javascript:;" style="color: grey;display: none"><i class="fa fa-close"></i></a>
                                     </div>
                                     <div>
@@ -331,7 +331,7 @@
                                             <li class="flex-row">
                                                 <p>经 办 人&nbsp;&nbsp;</p>
                                                 <div>
-                                                    <select id="format_issue_assignee" title="经办人" class="selectpicker">
+                                                    <select id="format_issue_assignee" title="处理人" class="selectpicker">
                                                         {% for row in project_users %}
                                                             {% set  display_name = row['display_name'] %}
                                                             <option value="<?=row.uid?>"  data-content="<img width='26px' height='26px' class=' float-none' style='border-radius: 50%;' src='<?=row.avatar?>' > <?=display_name?>"  ><?=display_name?></option>
@@ -584,7 +584,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label"  >显示经办人：</label>
+                        <label class="control-label"  >显示处理人：</label>
                         <div class="col-sm-10">
                             <div class="form-group col-md-6">
                                 <label class="radio-inline">

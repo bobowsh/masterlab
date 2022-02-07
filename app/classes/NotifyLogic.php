@@ -331,7 +331,7 @@ class NotifyLogic
     }
 
     /**
-     * 获取该项目经办人USERID
+     * 获取该项目处理人USERID
      * @return array
      */
     private function getAssigeeUser($rowData, $sourceType)

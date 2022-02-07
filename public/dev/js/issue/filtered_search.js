@@ -43,7 +43,7 @@ var FilteredSearch = (function () {
             symbol: "@"
         },
         {
-            key: "经办人",
+            key: "处理人",
             name: "assignee",
             jsonData: "users",
             symbol: "@"
@@ -57,7 +57,7 @@ var FilteredSearch = (function () {
         '模块': "#js-dropdown-module",
         '解决结果': "#js-dropdown-resolve",
         '报告人': "#js-dropdown-author",
-        '经办人': "#js-dropdown-assignee",
+        '处理人': "#js-dropdown-assignee",
         hint: "#js-dropdown-hint"
     }
 

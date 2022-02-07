@@ -1216,7 +1216,7 @@ MM.Item.prototype._updateIssueAssigneeImg = function () {
 			this._dom.issue_assignee_img.src = user_row.avatar;
 		}
 		this._dom.issue_assignee_img.classList.add('mind-avatar');
-		this._dom.issue_assignee_img.title = '经办人';
+		this._dom.issue_assignee_img.title = '处理人';
 		this._dom.issue_assignee_img.style.width = "1em";
 		this._dom.issue_assignee_img.style.height = "1em";
 	} else {

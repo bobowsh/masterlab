@@ -285,7 +285,7 @@ class WidgetLogic
             case 'assignee':
                 $userModel = new UserModel();
                 $userArr = $userModel->getAll();
-                $label = '按经办人';
+                $label = '按处理人';
                 $backgroundColor = [];
                 $data = [];
                 foreach ($rows as $item) {

@@ -130,7 +130,7 @@ class Main extends BaseUserCtrl
                 if ($fav['is_adv_query'] == '0') {
                     $fav['filter'] = str_replace([':='], [':'], $fav['filter']);
                     $fav['filter'] = str_replace([':', ' ', '"', ';;'], ['=', '&', '', '&'], $fav['filter']);
-                    $fav['filter'] = str_replace(['经办人=@', '报告人=@'], ['经办人=', '报告人='], $fav['filter']);
+                    $fav['filter'] = str_replace(['处理人=@', '报告人=@'], ['处理人=', '报告人='], $fav['filter']);
                     $filter = $fav['filter'] . '&active_id=' . $favFilterId;
                     $issueUrl = 'issue/main';
                     if (!empty($fav['projectid'])) {

@@ -119,7 +119,7 @@ class IssueSubscriber implements EventSubscriberInterface
             'priority' => '优先级',
             'module' => '模块',
             'summary' => '标题',
-            'assignee' => '经办人',
+            'assignee' => '处理人',
             'status' => '状态',
             'resolve' => '解决结果',
             'start_date' => '开始日期',

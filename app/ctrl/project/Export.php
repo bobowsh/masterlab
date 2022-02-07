@@ -54,7 +54,7 @@ class Export extends BaseUserCtrl
             'summary' => '标题', 'project_id' => '项目', 'issue_num' => '编号', 'issue_type' => '事项类型',
             'module' => '模块', 'sprint' => '迭代', 'weight' => '权重值', 'description' => '描述',
             'priority' => '优先级', 'status' => '状态', 'resolve' => '解决结果', 'environment' => '运行环境',
-            'reporter' => '报告人', 'assignee' => '经办人', 'assistants' => '协助人', 'modifier' => '最后修改人',
+            'reporter' => '报告人', 'assignee' => '处理人', 'assistants' => '协助人', 'modifier' => '最后修改人',
             'master_id' => '是否父任务', 'created' => '创建时间', 'updated' => '修改时间', 'start_date' => '计划开始日期',
             'due_date' => '计划结束日期', 'resolve_date' => '实际解决日期',
         ];
@@ -619,7 +619,7 @@ class Export extends BaseUserCtrl
             'summary' => '标题', 'project_id' => '项目', 'issue_num' => '编号', 'issue_type' => '事项类型',
             'module' => '模块', 'sprint' => '迭代', 'weight' => '权重值', 'description' => '描述',
             'priority' => '优先级', 'status' => '状态', 'resolve' => '解决结果', 'environment' => '运行环境',
-            'creator' => '创建人', 'reporter' => '报告人', 'assignee' => '经办人', 'assistants' => '协助人', 'modifier' => '最后修改人',
+            'creator' => '创建人', 'reporter' => '报告人', 'assignee' => '处理人', 'assistants' => '协助人', 'modifier' => '最后修改人',
             'master_id' => '是否父任务', 'created' => '创建时间', 'updated' => '修改时间', 'start_date' => '计划开始日期',
             'due_date' => '计划结束日期', 'resolve_date' => '实际解决日期',
             'duration' => '持续时间',

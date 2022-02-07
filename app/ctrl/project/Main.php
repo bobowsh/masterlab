@@ -506,7 +506,7 @@ class Main extends Base
         $data['rememberFieldArr'] = [
            // 'issue_type'=>'事项类型',  // 因为与"默认事项类型"功能相冲突，新版本3.2.0 取消此选项
             'module'=>'模 块',
-            'assignee'=>'经办人',
+            'assignee'=>'处理人',
             'fix_version'=>'解决版本',
             'labels'=>'标 签',
         ];

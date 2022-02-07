@@ -24,7 +24,7 @@ $(function(){
             err['status'] = '状态不能为空';
         }
         if(is_empty(trimStr($('#gantt_assignee').val()))){
-            err['assignee'] = '经办人不能为空';
+            err['assignee'] = '处理人不能为空';
         }
         if(is_empty($('#gantt_start_date').val())){
             err['start_date'] = '开始日期不能为空';

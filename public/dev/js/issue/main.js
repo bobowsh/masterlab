@@ -1305,7 +1305,7 @@ var IssueMain = (function () {
             columns.push( column)
         }
         if(isInArray(resp.data.display_fields,'assignee')){
-            let column = {field: 'assignee',  title: '经办人', sortable: true,  align: 'center', formatter:  function (value, row, index) {
+            let column = {field: 'assignee',  title: '处理人', sortable: true,  align: 'center', formatter:  function (value, row, index) {
                     let html = ''
                     html += '<div  title="双击可直接修改" class="item-list-select assignee-select" data-issue_id="'+row.id+'" id="assignee-list-'+row.id+'">'
                     if(resp.data.is_table_display_avatar=='1'){

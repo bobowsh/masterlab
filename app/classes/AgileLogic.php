@@ -363,9 +363,9 @@ class AgileLogic
     public function getSearchSqlParam(&$sql, &$params)
     {
         $assigneeUid = null;
-        if (isset($_GET[urlencode('经办人')])) {
+        if (isset($_GET[urlencode('处理人')])) {
             $userModel = new UserModel();
-            $row = $userModel->getByUsername(urldecode($_GET[urlencode('经办人')]));
+            $row = $userModel->getByUsername(urldecode($_GET[urlencode('处理人')]));
             if (isset($row['uid'])) {
                 $assigneeUid = $row['uid'];
             }
@@ -751,11 +751,11 @@ class AgileLogic
                     $params['start'] = $start;
                     $params['end'] = $end;
                 }
-                // 按经办人搜索事项
+                // 按处理人搜索事项
                 $assigneeUid = null;
-                if (isset($_GET[urlencode('经办人')])) {
+                if (isset($_GET[urlencode('处理人')])) {
                     $userModel = new UserModel();
-                    $row = $userModel->getByUsername(urldecode($_GET[urlencode('经办人')]));
+                    $row = $userModel->getByUsername(urldecode($_GET[urlencode('处理人')]));
                     if (isset($row['uid'])) {
                         $assigneeUid = $row['uid'];
                     }
