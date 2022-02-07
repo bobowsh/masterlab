@@ -402,7 +402,7 @@ var BoardSetting = (function () {
             is_filter_backlog: "0",
             is_filter_closed: "0",
             columns: [
-                { i: 0, name: "准备中", data: { status: ['open', 'reopen', 'in_review', 'delay'], resolve: [], label: [], assignee: [] , reporter: [] } },
+                { i: 0, name: "未开始", data: { status: ['open', 'reopen', 'in_review', 'delay'], resolve: [], label: [], assignee: [] , reporter: [] } },
                 { i: 1, name: "进行中", data: { status: ['in_progress'], resolve: [], label: [], assignee: [], reporter: [] } },
                 { i: 2, name: "已解决", data: { status: ['closed', 'done'], resolve: [], label: [], assignee: [] , reporter: []} }
             ]
