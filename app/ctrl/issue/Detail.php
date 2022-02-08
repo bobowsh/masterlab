@@ -445,7 +445,7 @@ class Detail extends BaseUserCtrl
 
 
     /**
-     * 获取事项的评论信息
+     * 获取事项的工作日志信息
      * @throws \Exception
      */
     public function fetchTimeline()
@@ -477,7 +477,7 @@ class Detail extends BaseUserCtrl
     }
 
     /**
-     * 新增一条事项的评论
+     * 新增一条事项的工作日志
      * @throws \Exception
      */
     public function addTimeline()
@@ -508,7 +508,7 @@ class Detail extends BaseUserCtrl
         $issue = IssueModel::getInstance($issueId)->getById($issueId);
         $perm = PermissionLogic::check($issue['project_id'], UserAuth::getId(), PermissionLogic::ADD_COMMENTS);
         if (!$perm) {
-            $this->ajaxFailed('当前项目中您没有权限进行此操作,需要评论权限');
+            $this->ajaxFailed('当前项目中您没有权限进行此操作,需要工作日志权限');
         }
 
         $info = [];
@@ -532,7 +532,7 @@ class Detail extends BaseUserCtrl
                 $issueModel->updateById($issueId, ['status' => $reopenStatusId]);
             }
 
-            // 更新评论数
+            // 更新工作日志数
             $issueLogic = new IssueLogic();
             $issueLogic->updateCommentsCount($issueId);
 
@@ -550,7 +550,7 @@ class Detail extends BaseUserCtrl
     }
 
     /**
-     * 更新评论
+     * 更新工作日志
      * @throws \Exception
      */
     public function updateTimeline()
@@ -590,7 +590,7 @@ class Detail extends BaseUserCtrl
             $perm = true;
         }
         if (!$perm) {
-            $this->ajaxFailed('您没有权限更新此评论', []);
+            $this->ajaxFailed('您没有权限更新此工作日志', []);
         }
         $info = [];
         $info['content'] = $content;
@@ -610,7 +610,7 @@ class Detail extends BaseUserCtrl
 
 
     /**
-     * 删除评论
+     * 删除工作日志
      * @throws \Exception
      */
     public function deleteTimeline()
@@ -640,13 +640,13 @@ class Detail extends BaseUserCtrl
             $perm = true;
         }
         if (!$perm) {
-            $this->ajaxFailed('您没有权限删除此评论', []);
+            $this->ajaxFailed('您没有权限删除此工作日志', []);
         }
 
         $timelineModel = new TimelineModel();
         $ret = $timelineModel->deleteById($id);
         if ($ret) {
-            // 更新评论数
+            // 更新工作日志数
             $issueLogic = new IssueLogic();
             $issueLogic->updateCommentsCount($issueId);
 

@@ -598,7 +598,7 @@ class IssueSubscriber implements EventSubscriberInterface
         $issue = IssueModel::getInstance()->getById($issueId);
         $activityModel = new ActivityModel();
         $activityInfo = [];
-        $activityInfo['action'] = '为' . $issue['summary'] . '添加了评论 ';
+        $activityInfo['action'] = '为' . $issue['summary'] . '添加了工作日志 ';
         $activityInfo['type'] = ActivityModel::TYPE_ISSUE_COMMIT;
         $activityInfo['obj_id'] = $event->pluginDataArr['id'];
         $issueId = $issue['id'];
@@ -621,7 +621,7 @@ class IssueSubscriber implements EventSubscriberInterface
         $issue = IssueModel::getInstance()->getById($timeline['issue_id']);
         $activityModel = new ActivityModel();
         $activityInfo = [];
-        $activityInfo['action'] = '删除了评论 ';
+        $activityInfo['action'] = '删除了工作日志 ';
         $activityInfo['type'] = ActivityModel::TYPE_ISSUE_COMMIT;
         $activityInfo['obj_id'] = $timeline['id'];
         $activityInfo['title'] = $timeline['content'];
@@ -644,7 +644,7 @@ class IssueSubscriber implements EventSubscriberInterface
         $issue = IssueModel::getInstance()->getById($timeline['issue_id']);
         $activityModel = new ActivityModel();
         $activityInfo = [];
-        $activityInfo['action'] = '更新了评论 ';
+        $activityInfo['action'] = '更新了工作日志 ';
         $activityInfo['type'] = ActivityModel::TYPE_ISSUE_COMMIT;
         $activityInfo['obj_id'] = $timeline['id'];
 

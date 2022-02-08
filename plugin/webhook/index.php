@@ -129,10 +129,10 @@ class Index extends BasePluginCtrl
             Events::onIssueAddFilter=>'添加过滤器',
         ];
 
-        $arr['评论'] = [
-            Events::onIssueAddComment=>'添加评论',
-            Events::onIssueDeleteComment=>'删除评论',
-            Events::onIssueUpdateComment=>'编辑评论',
+        $arr['工作日志'] = [
+            Events::onIssueAddComment=>'添加工作日志',
+            Events::onIssueDeleteComment=>'删除工作日志',
+            Events::onIssueUpdateComment=>'编辑工作日志',
         ];
 
         $arr['项目'] = [

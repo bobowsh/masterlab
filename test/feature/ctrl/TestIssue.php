@@ -976,7 +976,7 @@ class TestIssue extends BaseAppTestCase
         $reopenStatusId = IssueStatusModel::getInstance()->getIdByKey('reopen');
         $this->assertEquals($reopenStatusId, $issue['status']);
 
-        // 更新评论
+        // 更新工作日志
         $param = [];
         $param['id'] = $insertId;
         $param['content'] = 'test-content-updated';
@@ -996,7 +996,7 @@ class TestIssue extends BaseAppTestCase
         $this->assertEquals($param['content'], $timeLine['content']);
         $this->assertEquals($param['content_html'], $timeLine['content_html']);
 
-        // 某一事项的获取评论列表
+        // 某一事项的获取工作日志列表
         $param = [];
         $param['issue_id'] = $issueId;
         parent::curlGet($curl, ROOT_URL . 'issue/detail/fetchTimeline', $param);
@@ -1007,7 +1007,7 @@ class TestIssue extends BaseAppTestCase
         }
         $this->assertNotEmpty($respArr['data']['timelines']);
 
-        // 删除评论
+        // 删除工作日志
         $param = [];
         $param['id'] = $insertId;
         parent::curlGet($curl, ROOT_URL . 'issue/detail/deleteTimeline', $param);

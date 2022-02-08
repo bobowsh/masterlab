@@ -16,11 +16,12 @@
                 }
             </style>
             <ul class="nav-links scrolling-tabs admin-nav-links-fix">
-                <li class=" {% if (nav_links_active == 'index') %} <?= 'active' ?>{% endif %}">
+               <!-- <li class=" {% if (nav_links_active == 'index') %} <?= 'active' ?>{% endif %}">
                     <a title="显示主程序信息，MasterlabSocket信息，PHP信息，Web服务器信息，数据库信息" href="/admin/main">
                         <i class="fa fa-info-circle"></i> <span>服务信息</span>
                     </a>
                 </li>
+                -->
                 <li class=" {% if (nav_links_active == 'system') %} <?= 'active' ?>{% endif %}">
                     <a title="包含基础设置，时间设置，附件设置，安全设置，邮件配置，LDAP设置，缓存设置，操作日志，慢SQL查询" href="/admin/system"><i class="fa fa-cogs"></i> <span>系统设置</span>
                     </a>
@@ -42,6 +43,7 @@
                     <a title=" " href="/admin/project_tpl"><i class="fa fa-bolt"></i> <span>项目模板</span>
                     </a>
                 </li>
+                <!--
                 <li class=" {% if (nav_links_active == 'plugin') %} <?= 'active' ?>{% endif %}">
                     <a title=" " href="/admin/plugin_manager"><i class="fa fa-plug"></i> <span>插件管理</span>
                     </a>
@@ -55,6 +57,7 @@
                         </li>
                     {% endif %}
                 {% endfor %}
+                -->
             </ul>
         </div>
     </div>

@@ -516,8 +516,8 @@
                         <div class="issue-details issuable-details">
 
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#dicussion" role="tab" data-toggle="tab">评 论</a></li>
-                                <li role="presentation"><a href="#activity" role="tab" data-toggle="tab">活动日志</a></li>
+                                <li role="presentation" class="active"><a href="#dicussion" role="tab" data-toggle="tab">工作日志</a></li>
+                                <li role="presentation"><a href="#activity" role="tab" data-toggle="tab">操作记录</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -562,7 +562,7 @@
                                                             <div class="note-form-actions clearfix">
                                                                 <input id="btn-comment"
                                                                        class="btn btn-nr btn-create comment-btn js-comment-button js-comment-submit-button js-key-enter"
-                                                                       type="button" value="评论">
+                                                                       type="button" value="工作日志">
 
                                                                 <!--                                                    <a id="btn-comment-reopen"-->
                                                                 <!--                                                       class="btn btn-nr btn-reopen btn-comment js-note-target-reopen "-->
@@ -857,14 +857,14 @@
                         <div id="note-actions_{{id}}" class="note-actions">
                             {{#if is_issue_commented}}
                                 {{#if is_cur_user}}
-                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此评论"
+                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此工作日志"
                                        class="note-action-button js-note-edit2" href="#timeline_{{id}}">
                                         <i class="fa fa-pencil link-highlight"></i>
                                     </a>
                                     <a id="btn-timeline-remove_{{id}}" data-id="{{id}}"
                                        class="note-action-button js-note-remove danger"
-                                       data-title="删除此评论"
-                                       data-confirm2="您确认删除此评论?"
+                                       data-title="删除此工作日志"
+                                       data-confirm2="您确认删除此工作日志?"
                                        data-url="/issue/detail/delete_timeline/{{id}}"
                                        href="#timeline_{{id}}">
                                         <i class="fa fa-trash-o danger-highlight"></i>
@@ -873,14 +873,14 @@
 {% endverbatim %}
  {% if (is_admin or projectPermArr['MANAGE_COMMENTS'] is defined) %}
                                     {% verbatim %}
-                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此评论"
+                                    <a id="btn-timeline-edit_{{id}}" data-id="{{id}}" title="编辑此工作日志"
                                        class="note-action-button js-note-edit2 perm-is_admin perm-MANAGE_COMMENTS" href="#timeline_{{id}}">
                                         <i class="fa fa-pencil link-highlight"></i>
                                     </a>
                                     <a id="btn-timeline-remove_{{id}}" data-id="{{id}}"
                                        class="note-action-button js-note-remove danger"
-                                       data-title="删除此评论"
-                                       data-confirm2="您确认删除此评论?"
+                                       data-title="删除此工作日志"
+                                       data-confirm2="您确认删除此工作日志?"
                                        data-url="/issue/detail/delete_timeline/{{id}}"
                                        href="#timeline_{{id}}">
                                         <i class="fa fa-trash-o danger-highlight"></i>
