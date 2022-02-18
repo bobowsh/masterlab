@@ -7,7 +7,7 @@ trace: false
 write_request_log: false
 security_map: false
 date_default_timezone: 'Asia/Shanghai'
-encrypy_key: 'EAAATBA2mamrOr1R5007'
+encrypy_key: 'V33D8dQNdpI9gZNZ3608'
 
 xhprof:
   enable: false
@@ -34,8 +34,8 @@ database:
   default:
     host: 'localhost'
     port: '3306'
-    user: 'dev_user'
-    password: '123456'
+    user: 'root'
+    password: 'root123'
     db_name: 'masterlab'
     charset: 'utf8'
     timeout: 10
@@ -64,19 +64,19 @@ socket:
 schedule:
   -
     name: 'ProjectStat'
-    exe_bin: 'd:/phpenv/php-7.4/php.exe'
+    exe_bin: 'd:/wamp/php-7.4/php.exe'
     exp: '0 */30 * * * ?'
-    file: 'D:/phpenv/www/masterlab/app/server/timer/project.php'
+    file: 'D:/wamp/www/masterlab/app/server/timer/project.php'
     arg: '-f'
   -
     name: 'ProjectReport'
-    exe_bin: 'd:/phpenv/php-7.4/php.exe'
+    exe_bin: 'd:/wamp/php-7.4/php.exe'
     exp: '0 58 23 * * ?'
-    file: 'D:/phpenv/www/masterlab/app/server/timer/projectDayReport.php'
+    file: 'D:/wamp/www/masterlab/app/server/timer/projectDayReport.php'
     arg: '-f'
   -
     name: 'SprintReport'
-    exe_bin: 'd:/phpenv/php-7.4/php.exe'
+    exe_bin: 'd:/wamp/php-7.4/php.exe'
     exp: '0 59 23 * * ?'
-    file: 'D:/phpenv/www/masterlab/app/server/timer/sprintDayReport.php'
+    file: 'D:/wamp/www/masterlab/app/server/timer/sprintDayReport.php'
     arg: '-f'
