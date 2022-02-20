@@ -275,7 +275,7 @@ class User extends BaseAdminCtrl
         $userInfo['username'] = $username;
         $userInfo['display_name'] = $display_name;
         $userInfo['password'] = UserAuth::createPassword($password);
-        $userInfo['is_verified'] = '0';
+        $userInfo['is_verified'] = '1';
         $userInfo['create_time'] = time();
         $userInfo['title'] = isset($params['title']) ? $params['title'] : '';
         if ($disabled) {

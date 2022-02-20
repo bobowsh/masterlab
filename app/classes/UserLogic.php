@@ -308,7 +308,7 @@ class UserLogic
      */
     public static function makeDefaultAvatar($userId, $name)
     {
-        $avatar = new InitialAvatar();
+	    $avatar = new InitialAvatar();
         $bgColorArr = ['#FF4040', '#FF8C00', '#EED2EE', '#8FBC8F', '#9A32CD', '#707070', '#218868', '#00008B'];
         $num = mt_rand(0, count($bgColorArr)-1);
 
@@ -322,9 +322,10 @@ class UserLogic
             ->generate()
             ->stream('png', 90);
 
-        $shortPath = 'avatar/'.$userId.'.png';
-        $avatarFile = PUBLIC_PATH . 'attachment/'.$shortPath;
-        file_put_contents($avatarFile, $stream);
+     //   $shortPath = 'avatar/'.$userId.'.png';
+		$shortPath = 'avatar/../../gitlab/assets/no_avatar.png';
+        //$avatarFile = PUBLIC_PATH . 'attachment/'.$shortPath;
+        //file_put_contents($avatarFile, $stream);
 
         return [
             'url' => ATTACHMENT_URL . $shortPath,

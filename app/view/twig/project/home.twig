@@ -50,6 +50,7 @@
                         {% if (project['avatar'] is not empty) %}
                             <div class="avatar-container s70 project-avatar">
                                 <img src="<?= attachment_url~project['avatar']?>" class="avatar has-tooltip s70">
+
                             </div>
                         {% else %}
                             <div class="avatar-container s70 project-avatar">
@@ -78,10 +79,24 @@
                         </div>
                         <div class="col-lg-9">
                             {% for member in members %}
-                                <a href="<?=project_root_url?>/?处理人=<?=member['username']?>">
-                                    <img class="avatar has-tooltip s36 hidden-xs avatar-list-item" alt="" data-original-title="<?=member['display_name']?> <?=member['have_roles_str']?>"
-                                         src=" {% if (member['avatar'] is empty) %}<?= '/gitlab/images/default_user.png' ?>{% else %} <?= '/attachment/'~member['avatar'] ?>{% endif %}">
-                                </a>
+                                <!--a href="<?=project_root_url?>/?处理人=<?=member['username']?>">
+				<?=member['display_name']?>
+                                    <!--img class="avatar has-tooltip s36 hidden-xs avatar-list-item" alt="" data-original-title="<?=member['display_name']?> <?=member['have_roles_str']?>"
+                                         src=" {% if (member['avatar'] is empty) %}<?= '/gitlab/images/default_user.png' ?>{% else %} <?= '/attachment/'~member['avatar'] ?>{% endif %}"-->
+                                </a-->
+
+				<div style="display: block;float: left;padding:10px;">
+				    <img class="avatar has-tooltip s36 hidden-xs avatar-list-item" alt="" src=" {% if (member['avatar'] is empty) %}<?= '/gitlab/images/default_user.png' ?>{% else %} <?= '/attachment/'~member['avatar'] ?>{% endif %}">
+
+				    <div style="display: block;">
+
+					<p class="item-display">
+					    <a href="<?=project_root_url?>/?处理人=<?=member['username']?>">
+						 <?=member['username']?>
+					    </a>
+					</p>
+				    </div>
+				</div>
                             {% endfor %}
                         </div>
                     </div>
