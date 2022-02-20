@@ -68,17 +68,24 @@
                         <ul class="user-profile-extra">
                             <li class="extra-item">
                                 <span class="extra-item-title">参与项目</span>
+                                <a href="user/have_join_projects">
+                                
                                 <span class="extra-item-num"><?=joined_project_count?></span>
+                                </a>
                             </li>
 
                             <li class="extra-item">
                                 <span class="extra-item-title">未解决事项</span>
+                                <a href="issue/main?sys_filter=my_unsolved">
                                 <span class="extra-item-num"><?=assignee_count?></span>
+                                </a>
                             </li>
 
                             <li class="extra-item">
                                 <span class="extra-item-title">关注事项</span>
+                                <a href="issue/main?sys_filter=my_followed">
                                 <span class="extra-item-num"><?=follow_issue_count?></span>
+                                </a>
                             </li>
 
                         </ul>
