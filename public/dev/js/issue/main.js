@@ -1212,7 +1212,7 @@ var IssueMain = (function () {
                     }
                 }
             },
-            {field: 'summary',  title: '可拖拽到其他事项中' , class:"min_width_80 cursor_move",  formatter:  function (value, row, index) {
+            {field: 'summary',  title: '标 题' , class:"min_width_80 cursor_move",  formatter:  function (value, row, index) {
                     let html = '<a  href="javascript:linkIssue('+row.id+')"   class="commit-row-message" >';
                     html += lightSearch(value, row.search);
                     html += '</a>';
