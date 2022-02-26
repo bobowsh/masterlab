@@ -218,7 +218,7 @@
                                             {% endif %}
 
                                             {% if ('summary' in display_fields) %}
-                                                <th class="js-pipeline-commit pipeline-commit" style="min-width: 50px;">主 题</th>
+                                                <th class="js-pipeline-commit pipeline-commit" >主 题</th>
                                             {% endif %}
 
                                             {% if ('weight' in display_fields) %}
@@ -235,7 +235,7 @@
                                             {% endif %}
 
                                             {% if ('assignee'in display_fields) %}
-                                                <th class="js-pipeline-stages pipeline-info">
+                                                <th class="js-pipeline-stages pipeline-info" style="min-width: 150px;">
                                                     <a class="sort_link" data-field="assignee"
                                                        data-sortby="<?= sort_by == 'desc' ? 'asc' : 'desc' ?>" href="#">
                                                         处理人2
