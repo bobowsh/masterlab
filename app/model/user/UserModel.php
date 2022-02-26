@@ -249,6 +249,14 @@ class UserModel extends DbModel
         $user = $this->getRow($fields, $where);
         return $user;
     }
+    
+        public function getByDisplayname($username)
+    {
+        $fields = "*,{$this->primaryKey} as k";
+        $where = ['display_name' => trim($username)];
+        $user = $this->getRow($fields, $where);
+        return $user;
+    }
 
 
     /**

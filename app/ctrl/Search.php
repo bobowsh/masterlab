@@ -39,7 +39,7 @@ class Search extends BaseUserCtrl
     {
         $data = [];
         $data['title'] = '搜 索';
-        $data['top_menu_active'] = '';
+        $data['top_menu_active'] = 'search';
         $data['nav_links_active'] = '';
         $data['sub_nav_active'] = '';
 

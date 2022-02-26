@@ -174,9 +174,10 @@
       <th class="gdfColHeader"  align="center" style="width:17px;" title="里程碑结束日期."><span class="teamworkIcon" style="font-size: 8px;">^</span></th>
       <th class="gdfColHeader gdfResizable" style="width:80px;">结束日期</th>
       <th class="gdfColHeader gdfResizable" style="width:50px;">用时.</th>
-      <th class="gdfColHeader gdfResizable" style="width:20px;">进度%</th>
+      <th class="gdfColHeader gdfResizable" style="width:30px;">进度%</th>
       <th class="gdfColHeader gdfResizable requireCanSeeDep" style="width:50px;">依赖.</th>
-      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">处理人</th>
+      <th class="gdfColHeader gdfResizable" style="width:100px; text-align: left; padding-left: 10px;">处理人2</th>
+      <th class="gdfColHeader gdfResizable" style="width:1000px; text-align: left; padding-left: 10px;">描述</th>
     </tr>
     </thead>
   </table>
@@ -199,6 +200,7 @@
     <td class="gdfCell"><input type="text" name="progress" class="validated" entrytype="PERCENTILE" autocomplete="off" value="(#=obj.progress?obj.progress:''#)" (#=obj.progressByWorklog?"readOnly":""#)></td>
     <td class="gdfCell requireCanSeeDep"><input type="text" name="depends" autocomplete="off" value="(#=obj.depends#)" (#=obj.hasExternalDep?"readonly":""#)></td>
     <td class="gdfCell taskAssigs">(#=obj.getAssigsString()#)</td>
+    <td class="gdfCell description">(#=obj.description#)</td>
   </tr>
   --></div>
 

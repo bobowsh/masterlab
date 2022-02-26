@@ -190,16 +190,24 @@ class IssueFilterLogic
                 if (strpos($versionStr, 'MariaDB') !== false) {
                     $versionNum = 0;
                 }
-
+                $userModel = UserModel::getInstance();
+                $user = $userModel->getByDisplayname($search);
+                $uid="unknown";
+                if (isset($user['uid'])) {
+                        $uid=$user['uid'];
+                    }
+                   
                 // 使用LOCATE模糊搜索
-                if (strlen($search) < 10) {
-                    $sql .= " AND ( LOCATE(:summary,`summary`)>0  OR pkey=:pkey)";
+              //  if (strlen($search) < 10) {
+                    $sql .= " AND ( LOCATE(:summary,`summary`)>0  OR pkey=:pkey or locate(:description,description) > 0 or locate(:uid, assignee)>0)";
                     $params['pkey'] = $search;
                     $params['summary'] = $search;
-                } else {
-                    $sql .= " AND  LOCATE(:summary,`summary`)>0  ";
-                    $params['summary'] = $search;
-                }
+                    $params['description'] = $search;
+                    $params['uid'] = $uid;
+              //  } else {
+             //       $sql .= " AND  LOCATE(:summary,`summary`)>0  ";
+              //      $params['summary'] = $search;
+              //  }
 
             }
         }

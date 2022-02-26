@@ -158,6 +158,10 @@ table tbody tr td.width_3_0 {
     width: 3%;
 }
 
+table tbody tr td.width_25 {
+    width: 25%;
+}
+
 table tbody tr td.width_35 {
     width: 34.4%;
 }

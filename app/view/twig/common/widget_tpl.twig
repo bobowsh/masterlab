@@ -180,6 +180,9 @@
             <th>#id</th>
             <th>优先级</th>
             <th>主题</th>
+           
+            <th>工程</th>
+            <th>截止时间</th>
         </tr>
         </thead>
         <tbody id="unresolve_assignee_my_wrap">
@@ -212,6 +215,8 @@
                 {{/if_eq}}
                 {{status_html status }}
             </a></td>
+            <td>{{module}}</td>
+            <td>{{due_date }}</td>
     </tr>
     {{/issues}}
 </script>

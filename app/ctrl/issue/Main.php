@@ -75,7 +75,7 @@ class Main extends BaseUserCtrl
     public function __construct()
     {
         parent::__construct();
-        parent::addGVar('top_menu_active', 'project');
+        parent::addGVar('top_menu_active', 'search');
         parent::addGVar('sub_nav_active', 'project');
     }
 

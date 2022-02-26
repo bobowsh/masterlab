@@ -66,6 +66,9 @@ class Dashboard extends BaseUserCtrl
         // 关注事项数
         $issueFollowModel = new IssueFollowModel();
         $data['follow_issue_count'] = $issueFollowModel->getCountByUserId(UserAuth::getId());
+        
+         // 所有参与事项数
+        $data['all_issue_count'] = IssueFilterLogic::getCountByAssignee(UserAuth::getId());
 
         $data['user_layout'] = 'aa';
         $userSettingModel = new UserSettingModel();

@@ -53,7 +53,7 @@
 										</div>
 									</td>
 									{{#if_in_array 'issue_type'  ../display_fields}}
-										<td class="width_3_6"  title="双击可直接修改">
+										<td class="width_5"  title="双击可直接修改">
 											{{issue_type_short_html issue_type}}
 										</td>
 									{{/if_in_array}}
@@ -131,7 +131,7 @@
 									{{/if_in_array}}
 
 									{{#if_in_array 'assignee'  ../display_fields}}
-										<td class="width_5"  title="双击可直接修改">
+										<td class="width_7_9"  title="双击可直接修改">
                                             <div  title="双击可直接修改" class="item-list-select assignee-select" data-issue_id="{{id}}" id="assignee-list-{{id}}">
                                             {{#if_eq ../is_table_display_avatar '1'}}
 												{{user_html assignee}}

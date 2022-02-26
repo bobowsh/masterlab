@@ -235,10 +235,10 @@
                                             {% endif %}
 
                                             {% if ('assignee'in display_fields) %}
-                                                <th class="js-pipeline-stages pipeline-info" style="min-width: 150px;">
+                                                <th class="js-pipeline-stages pipeline-info">
                                                     <a class="sort_link" data-field="assignee"
                                                        data-sortby="<?= sort_by == 'desc' ? 'asc' : 'desc' ?>" href="#">
-                                                        处理人2
+                                                        处理人
                                                         {% if sort_field == 'assignee' %}
                                                             <i class="fa fa-sort-<?= sort_by ?>"></i>
                                                         {% endif %}

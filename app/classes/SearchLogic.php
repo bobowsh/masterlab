@@ -116,18 +116,27 @@ class SearchLogic
     {
         $start = $pageSize * ($page - 1);
         $limitSql = "   limit $start, " . $pageSize;
-
+        
+       // $userModel = UserModel::getInstance();
+       // $user = $userModel->getByDisplayname($keyword);
+       // $uid="unknown";
+       // if (isset($user['uid'])) {
+      //      $uid=$user['uid'];
+      //  }
+       
         $issueModel = new IssueModel();
         $table = $issueModel->getTable();
         //if (self::$mysqlVersion < 5.70) {
             // 使用LOCATE模糊搜索
-            $where = "WHERE locate(:keyword,`summary`) > 0  or locate(:keyword,description) > 0";
+           // $where = "WHERE locate(:keyword,`summary`) > 0  or locate(:keyword,description) > 0 or locate(:uid, assignee)>0";
+           $where = "WHERE locate(:keyword,`summary`) > 0  or locate(:keyword,description) > 0";
         //} else {
             // 使用全文索引
         //    $where =" WHERE MATCH (`summary`) AGAINST (:keyword IN NATURAL LANGUAGE MODE) ";
         //}
 
         $params['keyword'] = $keyword;
+      //  $params['uid'] = $uid;
         $sql = "SELECT * FROM {$table}  {$where} {$limitSql}";
         var_dump($sql);
         $rows = $issueModel->db->fetchAll($sql, $params);
@@ -147,7 +156,7 @@ class SearchLogic
 
         //if (self::$mysqlVersion < 5.70) {
             // 使用LOCATE模糊搜索
-            $where = "WHERE locate(:keyword,`summary`) > 0  ";
+            $where = "WHERE locate(:keyword,`summary`) > 0  or locate(:keyword,description) > 0";
         //} else {
             // 使用全文索引
         //    $where =" WHERE MATCH (`summary`) AGAINST (:keyword IN NATURAL LANGUAGE MODE) ";

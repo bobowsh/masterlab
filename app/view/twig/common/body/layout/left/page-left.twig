@@ -26,14 +26,19 @@
         </li>
         <li class="menu-item  {% if (top_menu_active == 'project') %} <?= 'menu-open' ?>{% endif %}">
             <a href="/projects">
-                <i class="fa fa-product-hunt"></i> <span>项 目</span>
+                <i class="fa fa-product-hunt"></i> <span>团 队</span>
             </a>
         </li>
-        <li class="menu-item  {% if (top_menu_active == 'profile') %} <?= 'menu-open' ?>{% endif %}">
+                <li class="menu-item  {% if (top_menu_active == 'search') %} <?= 'menu-open' ?>{% endif %}">
+            <a href="/issue/main">
+                <i class="fa fa-search"></i> <span>查 询</span>
+            </a>
+        </li>
+        <!--li class="menu-item  {% if (top_menu_active == 'profile') %} <?= 'menu-open' ?>{% endif %}">
             <a href="/user/profile">
                 <i class="fa fa-user-md"></i> <span>个 人</span>
             </a>
-        </li>
+        </li-->
         {% if ( is_admin ) %}
         <li class="menu-item  {% if (top_menu_active == 'system') %} <?= 'menu-open' ?>{% endif %}">
             <a href="/admin/system">
