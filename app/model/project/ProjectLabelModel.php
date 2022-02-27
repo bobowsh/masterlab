@@ -55,7 +55,7 @@ class ProjectLabelModel extends BaseDictionaryModel
         $row = $this->getRow("*", $where);
         return $row;
     }
-
+    
     public function getByProject($projectId = null, $primaryKey = false)
     {
         $table = $this->getTable();

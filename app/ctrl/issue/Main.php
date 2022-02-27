@@ -234,7 +234,7 @@ class Main extends BaseUserCtrl
         if ($issueViewTreeTange!==false) {
             $data['tree_range_data'] = $issueViewTreeTange;
         }
-        $data['issue_tree_is_closed'] = '0';
+        $data['issue_tree_is_closed'] = '1';
         $issueTreeIsClosed = $userSettingModel->getSettingByKey($userId, 'issue_tree_is_closed');
         if ($issueTreeIsClosed!==false) {
             $data['issue_tree_is_closed'] = $issueTreeIsClosed;

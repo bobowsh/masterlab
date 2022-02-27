@@ -475,8 +475,7 @@ class IssueFilterLogic
             $params['updated_end'] = $updatedEndTime;
         }
 
-        if (isset($_GET['issue_tree_is_closed']) && $_GET['issue_tree_is_closed']=='1') {
-        }else{
+        if (isset($_GET['issue_tree_is_closed']) && $_GET['issue_tree_is_closed']=='0') {
             $sql .=  self::getUnClosedSql();
         }
 
@@ -536,7 +535,9 @@ class IssueFilterLogic
             }
             $_SESSION['filter_id_arr'] = $idArr;
             // var_dump( $arr, $count);
+            //print($sql);
             return [true, $arr, $count];
+            //return [false, $sql, 0];
         } catch (\PDOException $e) {
             return [false, $e->getMessage(), 0];
         }
@@ -715,8 +716,7 @@ class IssueFilterLogic
         }
 
 
-        if (isset($_GET['issue_tree_is_closed']) && $_GET['issue_tree_is_closed']=='1') {
-        }else{
+        if (isset($_GET['issue_tree_is_closed']) && $_GET['issue_tree_is_closed']=='0') {
             $sql .=  self::getUnClosedSql();
         }
 
@@ -749,6 +749,7 @@ class IssueFilterLogic
             //echo $sql;print_r($params);die;
             $arr = $model->db->fetchAll($sql, $params);
             // var_dump( $arr, $count);
+            //return [false, $sql, 0];
             return [true, $arr, $count];
         } catch (\PDOException $e) {
             return [false, $e->getMessage(), 0];
@@ -980,10 +981,15 @@ class IssueFilterLogic
             return [];
         }
         $closedResolveId = IssueResolveModel::getInstance()->getIdByKey('done');
+        $fixedResolveId = IssueResolveModel::getInstance()->getIdByKey('fixed');
+        
         $closedStatusId = IssueStatusModel::getInstance()->getIdByKey('closed');
+        $doneStatusId = IssueStatusModel::getInstance()->getIdByKey('done');
+        $resolvedStatusId = IssueStatusModel::getInstance()->getIdByKey('resolved');
+            
         $model = new IssueModel();
         $table = $model->getTable();
-        $sql = "SELECT count(*) as count FROM {$table}  WHERE project_id ={$projectId}  AND resolve ='$closedResolveId' AND status='$closedStatusId'";
+        $sql = "SELECT count(*) as count FROM {$table}  WHERE project_id ={$projectId}  AND (`status` = '$closedStatusId' or `status` = '$doneStatusId' or `status` = '$resolvedStatusId') and (resolve='$closedResolveId' or resolve='$fixedResolveId')";
         // echo $sql;
         $count = $model->getFieldBySql($sql);
         return intval($count);
@@ -1033,8 +1039,12 @@ class IssueFilterLogic
     public static function getUnClosedSql()
     {
         $closedResolveId = IssueResolveModel::getInstance()->getIdByKey('done');
+        $fixedResolveId = IssueResolveModel::getInstance()->getIdByKey('fixed');
+        
         $closedStatusId = IssueStatusModel::getInstance()->getIdByKey('closed');
-        $appendSql = "  AND `status` != '$closedStatusId' AND resolve!='$closedResolveId' ";
+        $doneStatusId = IssueStatusModel::getInstance()->getIdByKey('done');
+        $resolvedStatusId = IssueStatusModel::getInstance()->getIdByKey('resolved');
+        $appendSql = "  AND `status` != '$closedStatusId' AND `status` != '$doneStatusId' AND `status` != '$resolvedStatusId' AND resolve!='$closedResolveId' AND resolve!='$fixedResolveId' ";
         return $appendSql;
     }
 
@@ -1050,6 +1060,7 @@ class IssueFilterLogic
         $noDoneStatusIdArr = [];
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('closed');
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('resolved');
+        $noDoneStatusIdArr[] = $statusModel->getIdByKey('done');
         $noDoneStatusIdStr = implode(',', $noDoneStatusIdArr);
         $appendSql = "  status NOT IN({$noDoneStatusIdStr}) ";
         return $appendSql;
@@ -1065,6 +1076,7 @@ class IssueFilterLogic
         $noDoneStatusIdArr = [];
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('closed');
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('resolved');
+        $noDoneStatusIdArr[] = $statusModel->getIdByKey('done');
         $noDoneStatusIdStr = implode(',', $noDoneStatusIdArr);
         $appendSql = "  `status`  IN({$noDoneStatusIdStr}) ";
         return $appendSql;
@@ -1080,6 +1092,7 @@ class IssueFilterLogic
         $noDoneStatusIdArr = [];
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('closed');
         $noDoneStatusIdArr[] = $statusModel->getIdByKey('resolved');
+        $noDoneStatusIdArr[] = $statusModel->getIdByKey('done');
         $noDoneStatusIdStr = implode(',', $noDoneStatusIdArr);
         $appendSql = "  `status` NOT IN({$noDoneStatusIdStr}) ";
         return $appendSql;

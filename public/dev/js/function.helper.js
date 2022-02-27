@@ -428,7 +428,8 @@ function module_html(module_id) {
     if (module == null) {
         html += '<a href="javascript:;" class="commit-id monospace"></a>';
     } else {
-        html += '<a href="?state=opened&模块=' + module.name + '" class="commit-id monospace">' + module.name + '</a>';
+        var sd = $("#issue_tree_is_closed").get(0).checked?'1':'0';
+        html += '<a href="?state=opened&模块=' + module.name + '&issue_tree_is_closed=' + sd + '" class="commit-id monospace">' + module.name + '</a>';
     }
     return html;
 }

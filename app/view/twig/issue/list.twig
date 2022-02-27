@@ -1059,6 +1059,7 @@
 
                     // 双击修改
                     $(document).on("dblclick", "#adv-query-box .table-text", function () {
+                        console.log("dbclick");
                         var $self = $(this);
                         var dataType = $self.data("type");
                         var dataSource = $self.data("source");
@@ -1114,18 +1115,22 @@
 
                         IssueAdvQuery.prototype.renderAdvQuery(adv_details);
                     });
-
-
-                    $(document).on("click", function (e) {
+                    
+                   
+                    function singleclick(e)  {
                         var $form = $(".table-form");
+                        //console.log(e);
                         if (!$form.is(e.target) && $form.has(e.target).length === 0) {
+                           // console.log($form);
                             $(".table-text").removeClass("hidden");
                             $(".table-form").addClass("hidden");
 
                             var $date = $("#adv-query-box .table-form input.laydate_input");
 
                             if ($date.length > 0) {
+                            console.log(1);
                                 $date.each(function () {
+                                console.log(2);
                                     var $self = $(this);
                                     var index = $self.data("index");
                                     var field_name = $self.data("name");
@@ -1135,8 +1140,39 @@
                                     IssueAdvQuery.prototype.renderAdvQuery(adv_details);
                                 });
                             }
+                            else
+                            {
+                                if(e.target.tagName == "A")
+                                {
+                                    //console.log(1);
+                                    window.location.href = e.target.href;
+                                }
+                                //return true;
+                            }
+                        }
+                    };
+                    
+                     var lasttime = new Date();
+                     var timeId;
+                     
+
+                    $(document).on("click",  function (e){
+                        var curtime=new Date();
+                        var deltatime = curtime - lasttime;
+                        clearTimeout(timeId);
+                        if(deltatime > 300)
+                        {
+                           // console.log("单击");
+                           
+                            lasttime = curtime;
+                            timeId = setTimeout(function () {
+                            //console.log("单击执行");
+                             singleclick(e);
+                            }, 500);
                         }
                     });
+
+                    
                     /*
                     $(document).on("click", "#btn_adv_sort_by", function () {
                         var sort_by = $("#adv_sort_by").val();
